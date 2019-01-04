@@ -1,21 +1,20 @@
-# Desafio da semana #2
-
-Nesse exercício, você está livre para escolher os nomes para suas variáveis e funções! :smile:
-
-```js
 // Crie uma função que receba dois argumentos e retorne a soma dos mesmos.
 function soma(a,b){
     return a + b;
 }
 
-// Declare uma variável que receba a invocação da função criada acima, passando dois números quaisquer por argumento, e somando `5` ao resultado retornado da função.
-var resultado = soma(1,2);
 
-// Qual o valor atualizado dessa variável?
-3
+// Declare uma variável que receba a invocação da função criada acima, passando dois números quaisquer por argumento, e somando `5` ao resultado retornado da função.
+var resultado = soma(1,2) + 5;
+
+
+// Qual o valor atualizado dessa variável
+8
+
 
 // Declare uma nova variável, sem valor.
 var jaca;
+
 
 /*
 Crie uma função que adicione um valor à variável criada acima, e retorne a string:
@@ -28,11 +27,13 @@ function add(){
     return "O valor da variável agora é " + valor +".";
 }
 
+
 // Invoque a função criada acima.
 add()
 
-// Qual o retorno da função? (Use comentários de bloco).
-?
+
+// Qual o retorno da função (Use comentários de bloco).
+
 
 /*O valor da variável agora é 1.*/
 
@@ -44,24 +45,29 @@ Crie uma função com as seguintes características:
 3. O retorno da função deve ser a multiplicação dos 3 argumentos, somando `2` ao resultado da multiplicação.
 */
 function verifica(a,b,c){
-    if(a == undefined || b == undefined || c ==undefined){
+    if(a === undefined || b === undefined || c === undefined){
         return 'Preencher todos os valores corretamente';
     }else{
-		return a * b * c;
+		return a * b * c + 2;
 	}
 }
+
 
 // Invoque a função criada acima, passando só dois números como argumento.
 verifica(1,2);
 
-// Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
-Preencher todos os valores corretamente
+
+// Qual o resultado da invocação acima (Use comentários para mostrar o valor retornado).
+//Preencher todos os valores corretamente
+
 
 // Agora invoque novamente a função criada acima, mas passando todos os três argumentos necessários.
 verifica(1,2,2);
 
-// Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
+
+// Qual o resultado da invocação acima (Use comentários para mostrar o valor retornado).
 //4
+
 
 /*
 Crie uma função com as seguintes características:
@@ -73,15 +79,18 @@ Crie uma função com as seguintes características:
 6. E ainda, se nenhuma das condições acima forem atendidas, retorne `null`.
 */
 function coisa(a,b,c){
-
-      if(a && !b){
-          return a;
-      }else if(a && b && !c){
-      return a + b;
+    
+    
+    if(a && !b){
+        return a;
+    }else if(a && b && !c){
+        return a + b;
     }else if(a && b && c){
-      return (a + b) / c;
+        return (a + b) / c;
+    }else if(!a && !b && !c){
+        return false;
     }else{
-      return false;
+        return null;
     }
     
 }
@@ -91,4 +100,3 @@ function coisa(a,b,c){
 coisa(1); //1
 coisa(1,2)//3
 coisa(2/2/2) // 2
-```
