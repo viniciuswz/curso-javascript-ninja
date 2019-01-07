@@ -38,7 +38,7 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
 */
 function showTeamPosition(position){
     if(position === undefined || position > teams.length || position <= 0){
-        return "coloque um valor entre 0 e " + teams.length;
+        return "Não temos a informação do time que está nessa posição, coloque um valor entre 0 e " + teams.length;
     }
     return 'O time que está em '+ position +'º lugar é o '+ teams[--position] +'.'
 
@@ -48,10 +48,12 @@ function showTeamPosition(position){
 Escolha 4 times do campeonato selecionado e mostre a posição dele, usando a
 função acima. Entre esses 4, adicione 1 que não esteja entre os 5 primeiros.
 */
-showTeamPosition(1);//O time que está em 1º lugar é o time1."
-showTeamPosition(2);//O time que está em 2º lugar é o time2."
-showTeamPosition(3);//O time que está em 3º lugar é o time3."
-showTeamPosition(6);// "coloque um valor entre 0 e 5"
+
+
+console.log(showTeamPosition(1));//O time que está em 1º lugar é o time1."
+console.log(showTeamPosition(2));//O time que está em 2º lugar é o time2."
+console.log(showTeamPosition(3));//O time que está em 3º lugar é o time3."
+console.log(showTeamPosition(6));// "Não temos a informação do time que está nessa posição, coloque um valor entre 0 e 5"
 
 
 /*
@@ -60,8 +62,8 @@ repetição "while".
 */
 i=20;
 while(i <=30  ){
-    console.log(i);
-    i++;
+    console.log(i++);
+    
 }
 
 /*
@@ -77,27 +79,32 @@ Crie uma função chamada `convertToHex`, com as seguintes características:
     "Não temos o equivalente hexadecimal para [COR]."
 */
 function convertToHex(cor){
+  var hexa;
     switch(cor){
         case 'vermelho':
-        return '#FF0000';
-      
+        hexa = '#FF0000';
+        break;
+        
         case 'verde':
-        return '#00FF00'
-      
+        hexa = '#00FF00';
+        break;
+        
         case 'azul':
-        return '#0000FF'
+        return '#0000FF';
+        break;
      
         case 'preto':
-        return '#000000';
+        hexa = '#000000';
+        break;
       
         case 'branco':
-        return '#FFFFFF';
+        hexa = '#FFFFFF';
+        break;
        
         default:
-        return 'Não temos o equivalente hexadecimal para ' + cor
-        
-        
+        return 'Não temos o equivalente hexadecimal para ' + cor + '.';
     }
+  return 'O hexadecimal para a cor ' + cor + ' é ' + hexa + '.';
 }
 
 /*
