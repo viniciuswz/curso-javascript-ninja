@@ -107,7 +107,7 @@ convertToHex('vermelho'); // #FF0000
 convertToHex('verde'); // #00FF00
 convertToHex('azul'); // #0000FF
 convertToHex('preto'); // #000000
-convertToHex('preto'); // #FFFFFF
+convertToHex('branco'); // #FFFFFF
 convertToHex('rosa'); // Não temos o equivalente hexadecimal para rosa
 convertToHex('roxo'); // Não temos o equivalente hexadecimal para roxo
 convertToHex('amarelo'); // Não temos o equivalente hexadecimal para amarelo
