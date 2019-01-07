@@ -20,6 +20,7 @@ var isTruthy = function(a){
 isTruthy(0);
 isTruthy(undefined);
 isTruthy(false);
+isTruthy(null);
 isTruthy(NaN);
 isTruthy(-0);
 
@@ -121,7 +122,7 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.addPessoas = function(a){
-    if(carro.quantidadePessoas == carro.assentos){
+    if(carro.quantidadePessoas == carro.assentos && a >= carro.assentos){
         return "O carro já está lotado!";
     }
     if(carro.quantidadePessoas + a > carro.assentos){
@@ -141,19 +142,19 @@ retornar algum valor.
 
 Qual a cor atual do carro?
 */
-carro.cor; //rosa
+carro.obterCor(); //rosa
 
 // Mude a cor do carro para vermelho.
 carro.mudarCor('azul');
 
 // E agora, qual a cor do carro?
-carro.cor; //azul
+carro.obterCor(); //azul
 
 // Mude a cor do carro para verde musgo.
 carro.mudarCor('verde musgo');
 
 // E agora, qual a cor do carro?
-carro.cor; //verde musgo
+carro.obterCor(); //verde musgo
 
 // Qual a marca e modelo do carro?
 carro.obterMarcaModelo();
@@ -169,7 +170,7 @@ carro.addPessoas(3)// Já temos 5 pessoas no carro!
 
 // Tire 4 pessoas do carro.
 carro.quantidadePessoas -= 4; // 1
-
+//carro.addPessoa(-4);
 // Adicione 10 pessoas no carro.
 carro.addPessoas(10) // Só cabem mais 4 pessoa
 
