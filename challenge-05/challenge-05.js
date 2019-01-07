@@ -14,7 +14,7 @@ function mostrarArray(a){
 /*
 Imprima o segundo índice do array retornado pela função criada acima.
 */
-mostrarArray(newArray)[1];
+console.log(mostrarArray(newArray)[1]);
 
 /*
 Crie uma função que receba dois parâmetros: o primeiro, um array de valores; e o
@@ -90,7 +90,7 @@ Ainda com a função acima, imprima a quantidade de páginas de um livro qualque
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-QUE
+console.log("O livro harry tem "+ book("harry").quantidadePaginas +" páginas!")
 
 
 
@@ -100,6 +100,8 @@ a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
 
+console.log("O autor do livro harry é "+ book("harry").autor);
+
 
 
 /*
@@ -107,4 +109,4 @@ Ainda com a função acima, imprima o nome da editora de um livro qualquer, usan
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-// ?
+console.log("O livro harry foi publicado pela editora "+ book("harry").editora);
