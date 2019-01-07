@@ -22,9 +22,12 @@ segundo, um número. A função deve retornar o valor de um índice do array que
 no primeiro parâmetro. O índice usado para retornar o valor, deve ser o número passado no
 segundo parâmetro.
 */
+
+
 function doisParam(a,b){
     return a[b];
 }
+
 
 
 /*
@@ -57,9 +60,9 @@ propriedades:
 os livros.
 */
 function book(nomeLivro){
-   
+    
     var obj = {
-        harry:{
+        'harry potter':{
             quantidadePaginas: 100,
             autor: 'JK',
             editora:'mundo'
@@ -74,25 +77,24 @@ function book(nomeLivro){
             autor: 'jaca',
             editora:'landra'
         }
-
+        
     }
-
-    return !nomeLivro ? obj : obj[nomeLivro]
+    
+    return !nomeLivro ? obj : obj[nomeLivro];
 }
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
-book();
+console.log(book());
 
 /*
 Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer,
 usando a frase:
 "O livro [NOME_DO_LIVRO] tem [X] páginas!"
 */
-console.log("O livro harry tem "+ book("harry").quantidadePaginas +" páginas!")
-
-
+var bookName = "harry potter";
+console.log("O livro "+bookName+" tem "+ book(bookName).quantidadePaginas +" páginas!");
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
@@ -100,13 +102,11 @@ a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
 
-console.log("O autor do livro harry é "+ book("harry").autor);
-
-
+console.log("O autor do livro "+bookName+" é "+ book(bookName).autor);
 
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-console.log("O livro harry foi publicado pela editora "+ book("harry").editora);
+console.log("O livro "+bookName+" foi publicado pela editora "+ book(bookName).editora);
