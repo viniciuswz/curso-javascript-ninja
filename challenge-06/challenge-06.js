@@ -85,7 +85,7 @@ function convertToHex(cor){
         return '#00FF00'
       
         case 'azul':
-        return '0000FF'
+        return '#0000FF'
      
         case 'preto':
         return '#000000';
@@ -103,11 +103,11 @@ function convertToHex(cor){
 /*
 Tente mostrar o hexadecimal de 8 cores diferentes usando a função criada acima.
 */
-convertToHex('vermelho'); // FF0000
-convertToHex('verde'); // 00FF00
-convertToHex('azul'); // 0000FF
-convertToHex('preto'); //000000
-convertToHex('preto'); //FFFFFF
+convertToHex('vermelho'); // #FF0000
+convertToHex('verde'); // #00FF00
+convertToHex('azul'); // #0000FF
+convertToHex('preto'); // #000000
+convertToHex('preto'); // #FFFFFF
 convertToHex('rosa'); // Não temos o equivalente hexadecimal para rosa
 convertToHex('roxo'); // Não temos o equivalente hexadecimal para roxo
 convertToHex('amarelo'); // Não temos o equivalente hexadecimal para amarelo
