@@ -1,7 +1,7 @@
 /*
 Crie um array com 5 items (tipos variados).
 */
-var newArray = ['jaca',1,function(){return 'oi'},{carro:'Gol'}]
+var newArray = ['jaca',1,function(){return 'oi'},{carro:'Gol'},false];
 
 /*
 Crie uma função chamada `addItem`, que irá adicionar itens no array criado.
@@ -23,7 +23,7 @@ Mostre no console o segundo elemento desse último array, criado acima, com a
 frase:
 "O segundo elemento do segundo array é [ELEMENTO]."
 */
-console.log('O segundo elemento do segundo array é '+ newArray[1] +'.');
+console.log('O segundo elemento do segundo array é '+ newArray[5][1] +'.');
 
 /*
 Mostre no console quantos itens tem o primeiro array criado, com a frase:
@@ -35,7 +35,7 @@ console.log('O primeiro array tem '+ newArray.length +' itens.');
 Agora mostre no console quantos itens tem o segundo array criado, com a frase:
 "O segundo array tem [QUANTIDADE DE ITENS] itens."
 */
-console.log('O primeiro array tem '+ newArray[5].length +' itens.');
+console.log('O segundo array tem '+ newArray[5].length +' itens.');
 
 /*
 Utilizando a estrutura de repetição `while`, mostre no console todos os números
@@ -81,7 +81,7 @@ for(i=100; i<=120;i++){
 console.log( 'Números ímpares entre 111 e 125:' );
 
 for(i=101; i<=125;i++){
-    if(i % 2 != 0){
+    if(i % 2 ){
         console.log(i)
     }
     i++
