@@ -4,7 +4,7 @@ Declare uma variável chamada `sum` e atribua a ela uma função chamada
 desses parâmetros.
 */
 
-var sum = function sum(x){
+var sum = function calculateSum(x){
     return function(y){
         return x + y
     };
@@ -17,7 +17,9 @@ o resultado no console, com a frase:
 "A soma de [VALOR 1] e [VALOR2] é igual a [RESULTADO]."
 */
 
-console.log('A soma de 1 e 2 é igual a ' + sum(1)(2));
+var value1 = 10;
+var value2 = 20;
+console.log('A soma de ' + value1 + ' e '+ value2 + ' é igual a ' + calculateSum(value1)(value2));
 
 /*
 Mostre no console o nome da função criada acima, com a frase:
@@ -29,15 +31,15 @@ console.log('O nome da função que faz a soma é ' + sum.name + '.')
 Crie uma função literal chamada `showName`. Essa função deve retornar o
 seu nome.
 */
-var showName = function showName(){
-    return showName.name;
+function showName(){
+    return 'Vinícius';
 }
 
 /*
 Declare uma variável chamada `varShowName` que recebe a função criada acima.
 */
 
-var varShowName = showName();
+var varShowName = showName;
 
 /*
 Usando a variável criada acima, mostre no console o nome e o retorno da função
@@ -45,7 +47,7 @@ atribuída a ela, com a seguinte frase:
 "A função [NOME DA FUNÇÃO] retorna [RETORNO DA FUNÇÃO]."
 */
 
-console.log('A função ' + varShowName.name + ' retorna' + showName() )
+console.log('A função ' + varShowName.name + ' retorna ' + showName() )
 
 /*
 Crie uma função literal chamada `calculator`, que funcione assim:
@@ -62,24 +64,37 @@ vai efetuar. Será uma string com os valores `+`, `-`, `*`, `/` ou `%`;
 function calculator(sinal){
    
         return function(x,y){
-            if(sinal == '+'){
-                resultado = x + y;
-                return 'O resultado da operação: '+ x + ' ' + sinal + ' ' + y + ' = ' + resultado;
-            }else if(sinal == '-'){
-                resultado = x - y;
-                return 'O resultado da operação: '+ x + ' ' + sinal + ' ' + y + ' = ' + resultado;
-            }else if(sinal == '*'){
-                resultado = x * y;
-                return 'O resultado da operação: '+ x + ' ' + sinal + ' ' + y + ' = ' + resultado;
-            }else if(sinal == '/'){
-                resultado = x / y;
-                return 'O resultado da operação: '+ x + ' ' + sinal + ' ' + y + ' = ' + resultado;
-            }else if(sinal == '%'){
-                resultado = x % y;
-                return 'O resultado da operação: '+ x + ' ' + sinal + ' ' + y + ' = ' + resultado;
-            }else{
-                return 'Operação inválida';
-            }
+        var resultado;
+                switch(sinal){
+                   
+                    case '+':
+                    resultado = x + y;
+                    break;
+
+                    case '-':
+                    resultado = x - y;
+                    break;
+
+                    case '/':
+                    resultado = x / y;
+                    break;
+
+                    case '*':
+                    resultado = x * y;
+                    break;
+
+                    case '%':
+                    resultado = x % y;
+                    break;
+
+                    default:
+                    return 'Operador inválido';
+
+
+
+                }
+                return 'O resultado da operação: '+ x + ' ' + sinal + ' ' + y + ' = ' + resultado + '.';
+
         };
     
    
