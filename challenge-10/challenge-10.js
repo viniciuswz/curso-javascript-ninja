@@ -11,10 +11,10 @@
     das variáveis. Analise o que está sendo impresso no console para saber como
     resolver o problema corretamente.
     */
-    var five = 5;
+    var five = number('5');
     console.log( five + ' é número?', typeof five === 'number' );
     
-    var concat = '10' + '10';
+    var concat = string(10) + 10;
     console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
     
     /*
@@ -56,7 +56,7 @@
     */
     
     function isOperatorValid(sinal){
-        return sinal === '+' || sinal === '-' || sinal === '*' || sinal === '/' || sinal === '%' && typeof(sinal) === 'string' ? true : false;
+        return !!operation[sinal];
     }
     
     
@@ -98,7 +98,7 @@
     */
     
     function showOperationMessage(operador,n1,n2){
-        return 'A operação '+ n1 + ' '+ operador + ' ' + n2+ ' ='
+        return 'A operação '+ n1 + ' "'+ operador + '" ' + n2+ ' ='
     }
     
     
