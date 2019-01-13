@@ -51,7 +51,7 @@
     'The person has more than 25 years old? [TRUE/FALSE]'
     */
     function moreThan(ageParam){
-        return ageParam > person.age
+        return person.age >  ageParam 
 
     }
     
@@ -83,7 +83,7 @@
    numbers = []
     console.log( 'Pares de 0 a 20:' );
     for(var i = 0; i <= 20; i++){
-        if(i % 2 !== 0){
+        if(i % 2 === 0){
             continue;
         }
         numbers.push(i);
