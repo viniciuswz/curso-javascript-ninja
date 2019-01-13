@@ -119,19 +119,19 @@
         return x + y;
         }) );
     
-    // ?
+
     
     console.log( 'O resultado da divisão é:',division(function(x,y){
         return x + y;
         }) );
     
-    // ?
+  
     
     console.log( 'O resto da divisão é:',mod(function(x,y){
         return x + y;
         }) );
     
-    // ?
+ 
     
     
     })();
