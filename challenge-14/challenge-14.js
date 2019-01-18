@@ -14,15 +14,19 @@
     Mostre esse array no console.
     */
     console.log( 'Number Objects Array:' );
-    var  numberObjects = [{1:1}, {2:2}, {3:3}, {4:4}, {5:5}, {6:6}, {7:7}, {8:8} , {9:9}, {10:10} ]
-    console.log(numberObjects);
-
+    var  numberObjects = []
+    for(var i = 1; i <=10; i++){
+        numberObjects.push({ number: i });
+    }
+    console.log(numberObjects)
     /*
     Crie um array chamado `justNumbers`, que terá como elementos somente os
     números do array criado acima. Mostre esse novo array no console.
     */
     console.log( '\nJust Numbers:' );
-    var justNumbers = [1,2,3,4,5,6,7,8,9,10];
+    var justNumbers = numberObjects.map(function(item,index){
+        return item.number;
+    })
     console.log(justNumbers);
 
     /*
@@ -106,7 +110,7 @@
     */
    
     console.log( '\nExiste um { number: 2 } em numberObjects?' );
-    console.log(numberObjects.indexOf({number: 2}) < 0 ? 'Não existe um objeto { number: 2 } em numberObjects :(' : 'Existe um objeto { number: 2 } em numberObjects!')
+    console.log(numberObjects.indexOf({ number: 2 }) < 0 ? 'Não existe um objeto { number: 2 } em numberObjects :(' : 'Existe um objeto { number: 2 } em numberObjects!')
 
     /*
     Fazendo o mesmo do exercício acima, mas começando a buscar do último índice,
