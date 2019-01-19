@@ -27,15 +27,15 @@
         this.name = name;
         this.lastname = lastName;
         this.age = age;
-        this.getFullName = function(){
+        this.getFullName = function getFullName(){
             return name + ' ' + lastName;
         };
-        this.getAge = function(){
-            return age
+        this.getAge = function getAge(){
+            return age;
         };
-        this.addAge = function(newAge){
-            age = age + newAge; 
-             return age;
+        this.addAge = function addAge(){
+            age += arguments[0]
+            return this;
         };
     }
     var contructor = new MyPerson('Vinícius','Araújo',18);
@@ -73,9 +73,11 @@
     cada um. A frase deverá ser no formato:
     - "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
     */
+
+   
     console.log( '\nNova idade das pessoas:' );
-    console.log(Vinicius.getFullName() + ' tem ' +Vinicius.addAge(5) + ' anos.');
-    console.log(Joao.getFullName() + ' tem ' + Joao.addAge(5) + ' anos.');
-    console.log(Pericles.getFullName() + ' tem ' + Pericles.addAge(5) + ' anos.');
+    console.log(Vinicius.getFullName() + ' tem ' + Vinicius.addAge(5).getAge() + ' anos.');
+    console.log(Joao.getFullName() + ' tem ' + Joao.addAge(5).getAge() + ' anos.');
+    console.log(Pericles.getFullName() + ' tem ' + Pericles.addAge(5).getAge() + ' anos.');
 
 })();
