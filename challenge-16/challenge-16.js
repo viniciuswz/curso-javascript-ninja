@@ -19,11 +19,8 @@
     console.log( 'As letras do seu nome:' );
     var name = 'Vinícius';
     for(var i = 0; i< name.length; i++){
-        
-        var position = i;
-        position++;
-        
-        console.log(name.charAt(i) + ' é a ' +  position + 'ª letra do meu nome')
+       
+        console.log(name.charAt(i) + ' é a ' +  (i + 1) + 'ª letra do meu nome')
     }
 
     /*
@@ -40,12 +37,15 @@
     */
     console.log( '\nNome convertido à partir de um slug:' );
     var fullName = 'vinícius-araújo-da-silva';
-    var arrayFullName = fullName.split('-');
-    for(var i = 0; i < arrayFullName.length; i++){
-        arrayFullName[i] =  arrayFullName[i].charAt(0).toUpperCase() + arrayFullName[i].substring(1)
-    }
+    var arrayFullName = fullName.split('-').map(function(name){
+        return name.charAt(0).toUpperCase() + name.slice(1)
+    }).join(' ');
+    // for(var i = 0; i < arrayFullName.length; i++){
+    //     arrayFullName[i] =  arrayFullName[i].charAt(0).toUpperCase() + arrayFullName[i].substring(1)
+    // }
+
     console.log(fullName);
-    console.log(arrayFullName.join(' '));
+    console.log(arrayFullName);
     
 
 
@@ -60,11 +60,17 @@
     */
     console.log( '\nMeus amigos:' );
    
-    var newArray =  ['Gustavo' ,'Hellen', 'Garcia', 'Afro' , 'Daniel'];
-    var friends = newArray.join(', ');
-    var startFriends = friends.slice( 0 , friends.lastIndexOf(',') );
-    var endFriends = friends.slice(friends.lastIndexOf(',')).replace(',',' e');
-    console.log(startFriends + endFriends);
+    var friends =  ['Gustavo' ,'Hellen', 'Garcia', 'Afro' , 'Daniel'];
+    // var friends = newArray.join(', ');
+    // var startFriends = friends.slice( 0 , friends.lastIndexOf(',') );
+    // var endFriends = friends.slice(friends.lastIndexOf(',')).replace(',',' e');
+    // console.log(startFriends + endFriends);
+    var phrase = friends.reduce(function(acumulado,atual,index){
+        var separator = friends.length - 1 === index ? ' e ' : ', ';
+        return acumulado + separator +  atual;
+    }).concat(' são meus amigos')
+
+    console.log(phrase)
 
     /*
     Usando o replace(), faça a string "Roberto" virar "Roberta".
@@ -72,8 +78,8 @@
     */
     console.log( '\nEra "Roberto", agora é:' );
     var roberto = 'roberto'
-    console.log(roberto.substring(0,roberto.lastIndexOf('o')) + roberto.substring(roberto.lastIndexOf('o')).replace('o','a'));
-
+    //console.log(roberto.substring(0,roberto.lastIndexOf('o')) + roberto.substring(roberto.lastIndexOf('o')).replace('o','a'));
+    console.log('Roberto'.replace('to','ta'))
     /*
     Mostre no console a parte "nando" da string "Fernando". Use o método que
     faz a busca do final para o início da string.
