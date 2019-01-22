@@ -17,7 +17,7 @@
     - "101.123-131x32"
     */
    function cleanCPF(cpf){
-   return cpf.replace(/[^\d+]/g,'')
+   return cpf.replace(/[\D+]/g,'')
    }
    console.log(cleanCPF('049-214 3421-1'));
    console.log(cleanCPF('210.458.522-05'));
@@ -29,10 +29,8 @@
     Mostre o resultado no console.
     */
     console.log( '\nFormatando CPFs corretamente:' );
-    cleanCPF('049-214 3421-1').replace(/(\d{3})(\d{3})(\d{3})(\d{2,3})/g , function(all,exp1,exp2,exp3,exp4){
-        console.log(exp1 + '.' + exp2 + '.' + exp3 + '-' + exp4 )
-    })
-
+    var cleanedCpf = cleanCPF('049-214 3421-1').replace(/(\d{3})(\d{3})(\d{3})(\d{2,3})/g , '$1.$2.$3-$4')
+   console.log(cleanedCpf);
     /*
     Crie uma expressão regular que faça match com as palavras "junho" ou "julho",
     usando o mínimo de caracteres possíveis na regex.
@@ -94,7 +92,7 @@
     corretas, para depois aplicar no código ;)
     */
     console.log( '\nFazer replace dos textos das tags:' );
-   '<h1>Título da página</h1><p>Este é um parágrafo</p><footer>Rodapé</footer>'.replace(/(<\w+>)([\wíá\sé]+)(<\/\w+>)/g,function(tudo,tagStart,phrase,tagEnd){
+   '<h1>Título da página</h1><p>Este é um parágrafo</p><footer>Rodapé</footer>'.replace(/(<\w+>)([^<]+)(<\/\w+>)/g,function(tudo,tagStart,phrase,tagEnd){
         var onlyNameTag = tagStart.replace(/[<>]/g,'');
         console.log(tagStart + 'O texto dentro da tag "'+ onlyNameTag+'" é "'+phrase+'"'+ tagEnd);
     })
