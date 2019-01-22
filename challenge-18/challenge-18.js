@@ -94,5 +94,9 @@
     corretas, para depois aplicar no código ;)
     */
     console.log( '\nFazer replace dos textos das tags:' );
+   '<h1>Título da página</h1><p>Este é um parágrafo</p><footer>Rodapé</footer>'.replace(/(<\w+>)([\wíá\sé]+)(<\/\w+>)/g,function(tudo,tagStart,phrase,tagEnd){
+        var onlyNameTag = tagStart.replace(/[<>]/g,'');
+        console.log(tagStart + 'O texto dentro da tag "'+ onlyNameTag+'" é "'+phrase+'"'+ tagEnd);
+    })
    
 })()
