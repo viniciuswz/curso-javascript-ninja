@@ -1,5 +1,5 @@
 (function(){
-    'use strict'
+    'use strict';
     /*
     1. Envolva todo o conteúdo desse desafio em uma IIFE.
     2. Adicione a diretiva 'use strict';
@@ -87,8 +87,9 @@
     var markup = '<main>\n  <div class="container">\n    <span class="text date"></span>\n    <p class=\'excerpt\'></p>\n  </div>\n</main>';
     console.log( '\nQuais classes CSS existem na marcação abaixo?\n\n', markup, '\n' );
     function hasClass(html,htmlclass){
-        reg = new RegExp('class=["\'\w\s]+?('+htmlclass+')["\']?','gm');
-       return console.log(reg.test(html)?  'true para a classe ' + htmlclass : 'false para a classe ' + htmlclass)  
+        reg = new RegExp('class=["\'\\w\\s]+?('+htmlclass+')["\']?','gm');
+        //console.log(reg)
+       return reg.test(html)?  'true para a classe ' + htmlclass : 'false para a classe ' + htmlclass
       
     }
     
