@@ -30,21 +30,24 @@ dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
         $time.value = counter++;
         temporizador =  setTimeout(timer,1000) 
     }
-
-    $start.addEventListener('click',function(event){
+    function startTimer(event){
         event.preventDefault();
         timer();
-    },false)
-
-    $stop.addEventListener('click',function(event){
+    }
+    function stopTimer(event){
         event.preventDefault();
         clearTimeout(temporizador);
-    },false)
-
-    $reset.addEventListener('click',function(event){
-        event.preventDefault();
+    }
+    function resetTimer(event){
+        
         counter = 0;
-        $time.value = counter;
-    },false)
+        stopTimer();
+    }
+
+    $start.addEventListener('click',startTimer,false)
+
+    $stop.addEventListener('click',stopTimer,false)
+
+    $reset.addEventListener('click',resetTimer,false)
 
 })(window,document)
