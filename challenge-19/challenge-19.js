@@ -17,12 +17,10 @@
     Com a resposta, mostre um alert com a mensagem "Bem vindo [USERNAME]!"
     */
     // ?
-    var username;
-    var aswer = win.prompt('Qual o seu nome?');
-    if(aswer)
-    username = aswer
-    else
-    username = 'Desconhecido'
+   
+    var username = win.prompt('Qual o seu nome?');
+    if(!username)
+        username = 'Desconhecido'
     
     alert('Bem vindo ' + username)
     
@@ -95,35 +93,26 @@
     $button.addEventListener('click',function(event){
         var ok = true;
         event.preventDefault();
-        if($inputUsername.value === ''){
-        alert('Preencha o nome do usuário!');
-        ok = false
-        }
+        if($inputUsername.value === '')
+            return alert('Preencha o nome do usuário!');
+        
+        if($inputEmail.value === '')
+            return alert('Preencha o Email!');
+        
 
-        if($inputEmail.value === ''){
-        alert('Preencha o Email!');
-        ok = false
-        }
-
-        if($mensage.value == ''){
-        alert('Preencha a mensagem!');
-        ok = false
-        }
-
-        if(!isValidEmail($inputEmail.value)){
-            alert('email inválido');
-            ok = false;
-            
-        }
-
-
+        if($mensage.value == '')
+            return alert('Preencha a mensagem!');
        
+        if(!isValidEmail($inputEmail.value))
+            return alert('email inválido');
+         
 
-        if(ok){
+        if(!confirm('Tem certeza que deseja enviar o formulário?'))
+            return 'Não enviado'
+        return alert('Enviado com Sucesso!');
         //console.log($inputUsername.value, $inputEmail.value, $mensage.value)
-        var submit = window.confirm('Tem certeza que deseja enviar o formulário?');
-        submit ? alert('Enviado com sucesso!') : alert('Não enviado.')
-        }
+        
+        
     },false)
 
 
