@@ -15,3 +15,36 @@ usar o nome que achar melhor, desde que ele seja semântico, ou seja, o nome
 dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
 */
 // ?
+
+(function(win,doc){
+    
+    'use strict'
+    var $time = doc.querySelector('textarea');
+    var $start = doc.querySelector('[data-js="start"]');
+    var $stop = doc.querySelector('[data-js="stop"]');
+    var $reset = doc.querySelector('[data-js="reset"]');
+    var counter = 0;
+    var temporizador; 
+
+    function timer(){
+        $time.value = counter++;
+        temporizador =  setTimeout(timer,1000) 
+    }
+
+    $start.addEventListener('click',function(event){
+        event.preventDefault();
+        timer();
+    },false)
+
+    $stop.addEventListener('click',function(event){
+        event.preventDefault();
+        clearTimeout(temporizador);
+    },false)
+
+    $reset.addEventListener('click',function(event){
+        event.preventDefault();
+        counter = 0;
+        $time.value = counter;
+    },false)
+
+})(window,document)
