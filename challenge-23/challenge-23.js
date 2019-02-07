@@ -96,7 +96,7 @@ input;
         var $length = $visor.value.length;
         if($length >1)
             return $visor.value = $visor.value.substring(0, $length - 1)
-        else if($length >1 || $this == '>')
+        else if($length > 1 || $this == '>')
             return $visor.value = 0
     }
 
@@ -126,7 +126,12 @@ input;
     }
 
     function makeCalc(reg,visor){
-        var jaca = visor.replace(reg,function(index,signal){
+        var $calc;
+        if(isSignal(visor.slice(-1)))
+            $calc = visor.slice(0,-1)
+        else
+            $calc= visor;
+        var jaca = $calc.replace(reg,function(index,signal){
             var values = index.match(/^([\+\-]?[\d\.]+)|([\d\.]+)/g);
             values.push(signal);
             //return mult.apply(mult,index.match(/\d+/g));
