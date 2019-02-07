@@ -1,33 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <title>Challenge 24 - Calculator</title>
+    <meta charset="utf-8" />
+    <title>Challenge 24</title>
+    <style>
+        body { font-family: sans-serif }
+        label { display: block; background: white; }
+        input { margin-bottom: 10px;background: white; outline: none; border: 0; font-size: 22px; padding: 4px; width: 100%; max-width:320px; padding-left: 45px }
+        #calc{ max-width: 330px; display: flex; justify-content: center;flex-wrap: wrap}
+        button{border: 3px solid #a9a9a9; outline: none; border-radius: 50%; width: 50px; height: 50px; margin: 5px 10px; font-weight: bold; font-size: 17px}
+        button:not(.number){font-size: 19px}
+        button:hover{background-color: #c4c3c3 !important }
+        button div{background-color: white; font-size: 16px }
+        button.number{background-color: white}
+        button.number:hover{background-color: #f3f3f3 !important}
+        #orange:hover{background-color: #e2640f !important }
+        #red:hover{background-color: #ca1313 !important }
+    </style>
 </head>
 <body>
-  <input type="text" value="0" readonly data-js="visor">
-  <div class="buttons-numbers">
-    <button data-js="button-number" value="0">0</button>
-    <button data-js="button-number" value="1">1</button>
-    <button data-js="button-number" value="2">2</button>
-    <button data-js="button-number" value="3">3</button>
-    <button data-js="button-number" value="4">4</button>
-    <button data-js="button-number" value="5">5</button>
-    <button data-js="button-number" value="6">6</button>
-    <button data-js="button-number" value="7">7</button>
-    <button data-js="button-number" value="8">8</button>
-    <button data-js="button-number" value="9">9</button>
-  </div>
+    <form id="calc">
+        <input type="text" name="visor" id="" disabled value="0">
+        <button id="orange" style="background-color:#ff7010; color: white; border: 3px solid #fc6500;" value="apagar">CE</button>
+        <button data-js="/" value="/">÷</button>
+        <button data-js="X" value="*">X</button>
+        <button id="red" style="background-color:#f11f1f; color: #f11f1f; border: 3px solid #d31b1b;" value=">">
+            <div>x</div>
+        </button>
 
-  <div class="operations">
-    <button data-js="button-operation" value="+">+</button>
-    <button data-js="button-operation" value="-">-</button>
-    <button data-js="button-operation" value="x">x</button>
-    <button data-js="button-operation" value="÷">÷</button>
-    <button data-js="button-equal" value="=">=</button>
-    <button data-js="button-ce" value="ce">CE</button>
-  </div>
+        
+        <button class="number" value="7">7</button>
+        <button class="number" value="8">8</button>
+        <button class="number" value="9">9</button>
+        <button data-js="%" value="%">%</button>
 
-  <script src="challenge-24.js"></script>
+        <button class="number" value="4">4</button>
+        <button class="number" value="5">5</button>
+        <button class="number" value="6">6</button>
+        <button data-js="-" value="-">-</button>
+
+        <button class="number" value="1">1</button>
+        <button class="number" value="2">2</button>
+        <button class="number" value="3">3</button>
+        <button data-js="+" value="+">+</button>
+
+        <button class="number" value="0">0</button>
+        <button value=".">.</button>
+        <button value="()">()</button>
+        <button value="=">=</button>
+
+
+
+
+    </form>
+    <script src="challenge-24.js"></script>
 </body>
 </html>
