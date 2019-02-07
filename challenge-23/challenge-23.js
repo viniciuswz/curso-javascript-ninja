@@ -51,7 +51,7 @@ input;
     var $reg = /\-?[\d\.]+([\+\*\/\-]).?[\d\.]+/;
     var regInit = /\-?[\d\.]+([\*\/]).?[\d\.]+/;
    // var $button = document.querySelector('[data-js="1"]');
-    // falta só reconhecer ponto
+    
 
     console.log($buttonData)
     function myFunction(event) {
@@ -61,16 +61,47 @@ input;
     }
 
     function initCalculator($this,valorInitial){
-        var $this = this.value
-        console.log(valorInitial); 
-        if(valorInitial == 0)
-           return $visor.value =  this.value; 
+        var $this = this.value;
+
+        //verifyLastDigit($this);
+        //console.log(valorInitial); 
+        if(valorInitial == 0 && $this != '>' )
+           return $visor.value =  $this; 
         else if($this == 'apagar')
             return $visor.value = 0;
         else if($this == '=')
             return $visor.value = sendCalc(valorInitial)
+        else if(isSignal($this))
+            return verifyLastDigit($this,valorInitial)
+        else if($this == '>')
+            deleteLastDigit($this);
         else
-           return $visor.value +=  this.value 
+           return $visor.value +=  $this
+    }
+
+    function verifyLastDigit(signal,valorInitial){
+        var lastSignalDigit = valorInitial.substring(valorInitial.length - 1);
+
+        if(lastSignalDigit == signal)
+            return $visor.value = sendCalc(valorInitial.substring(0,valorInitial.length - 1));
+        else if(isSignal(lastSignalDigit))
+            return $visor.value = valorInitial.substring(0,valorInitial.length - 1) + signal;
+        else
+            return $visor.value = valorInitial + signal
+
+        //console.log(signal)
+    }
+
+    function deleteLastDigit($this){
+        var $length = $visor.value.length;
+        if($length >1)
+            return $visor.value = $visor.value.substring(0, $length - 1)
+        else if($length >1 || $this == '>')
+            return $visor.value = 0
+    }
+
+    function isSignal($this){
+       return $this == '+' || $this == '-' || $this == '*' || $this == '/'
     }
     
     //console.log(sum(1,2,3,4,5,6))
@@ -107,24 +138,24 @@ input;
             return sendCalc(jaca)
         else
             return jaca
-}
+    }
+
+    function verifyCalc(x,y,signal){
+    return operation[signal](x,y);
+    }
 
 
-function verifyCalc(x,y,signal){
-  return operation[signal](x,y);
-}
 
-//console.log(verifyCalc('*',1,2))
+    //console.log(verifyCalc('*',1,2))
 
-
-   // console.log(sendCalc('10+1*2*3*4'))
+    // console.log(sendCalc('10+1*2*3*4'))
 
     // $button[0].addEventListener('click',myFunction,false)
 
     Array.prototype.forEach.call($buttonData,function($this){
         console.log($this.addEventListener('click',myFunction,false))
     })
-
+0
     Array.prototype.forEach.call($button,function($this){
         console.log($this.addEventListener('click',myFunction,false))
     })
