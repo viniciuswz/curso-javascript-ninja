@@ -9,10 +9,14 @@ listeners de eventos, etc);
 - faça refactories para melhorar esse código, mas de forma que o mantenha com a
 mesma funcionalidade.
 */
-
-
 (function(win,doc){
-  'use strict'
+    'use strict'
+
+    var $buttonData = document.querySelectorAll('[data-js]');
+    var $button = document.querySelectorAll('button');
+    var $visor = doc.querySelector('[type="text"]')
+    var $reg = /\-?[\d\.]+([\+\*\/\-]).?[\d\.]+/;
+    var regInit = /\-?[\d\.]+([\*\/]).?[\d\.]+/;   
     var operation = {
         '+': function(x,y){
             return (Number(x)) + (Number(y));
@@ -30,17 +34,20 @@ mesma funcionalidade.
             return (Number(x)) % (Number(y));
         }
     }
-   
-    var $buttonData = document.querySelectorAll('[data-js]');
-    var $button = document.querySelectorAll('button');
-    var $visor = doc.querySelector('[type="text"]')
-    //var $reg = /\d+([\+\*\/\-])\d+/g;
-    var $reg = /\-?[\d\.]+([\+\*\/\-]).?[\d\.]+/;
-    var regInit = /\-?[\d\.]+([\*\/]).?[\d\.]+/;
-   // var $button = document.querySelector('[data-js="1"]');
-    
+    function initCode(){
+        initEvents();
+    }
 
-    console.log($buttonData)
+    function initEvents(){
+
+        Array.prototype.forEach.call($buttonData,function($this){
+            console.log($this.addEventListener('click',myFunction,false))
+        })
+        Array.prototype.forEach.call($button,function($this){
+            console.log($this.addEventListener('click',myFunction,false))
+        })
+    }
+
     function myFunction(event) {
         event.preventDefault();
         var visorValue = $visor.value;
@@ -49,9 +56,6 @@ mesma funcionalidade.
 
     function initCalculator($this,valorInitial){
         var $this = this.value;
-
-        //verifyLastDigit($this);
-        //console.log(valorInitial); 
         if(valorInitial == 0 && $this != '>')
            return $visor.value =  $this; 
         else if($this == 'apagar')
@@ -75,8 +79,6 @@ mesma funcionalidade.
             return $visor.value = valorInitial.substring(0,valorInitial.length - 1) + signal;
         else
             return $visor.value = valorInitial + signal
-
-        //console.log(signal)
     }
 
     function deleteLastDigit($this){
@@ -91,18 +93,12 @@ mesma funcionalidade.
        return $this == '+' || $this == '-' || $this == '*' || $this == '/'
     }
     
-    //console.log(sum(1,2,3,4,5,6))
-
-   
     function sendCalc(visor){
-        //var initSignal = /[\*\/]/
-        //var normalSignal = /\d([\+\-])/
         if(verifySignal(regInit,visor)){
             return makeCalc(regInit,visor)
         }else{
             return makeCalc($reg,visor)
         }
-        
     }
 
     function verifySignal(reg,visor){
@@ -117,19 +113,16 @@ mesma funcionalidade.
     }
 
     function removeLastSignal(visor){
-        
         if(isSignal(visor.slice(-1)))
-        return visor.slice(0,-1)
+             return visor.slice(0,-1)
         else
             return visor;
     }
 
     function calcs(reg,calc){
-    return calc.replace(reg,function(index,signal){
+        return calc.replace(reg,function(index,signal){
             var values = index.match(/^([\+\-]?[\d\.]+)|([\d\.]+)/g);
             values.push(signal);
-            //return mult.apply(mult,index.match(/\d+/g));
-            //return verifyCalc.apply(verifyCalc,sigal,index.match(/\d+/g));
             return verifyCalc.apply(verifyCalc,values);
         })
     }
@@ -141,26 +134,9 @@ mesma funcionalidade.
             return calc
     }
 
-
     function verifyCalc(x,y,signal){
         return operation[signal](x,y);
     }
 
-
-
-    //console.log(verifyCalc('*',1,2))
-
-    // console.log(sendCalc('10+1*2*3*4'))
-
-    // $button[0].addEventListener('click',myFunction,false)
-
-    Array.prototype.forEach.call($buttonData,function($this){
-        console.log($this.addEventListener('click',myFunction,false))
-    })
-0
-    Array.prototype.forEach.call($button,function($this){
-        console.log($this.addEventListener('click',myFunction,false))
-    })
- 
-  
+    initCode();
 })(window,document)
