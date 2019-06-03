@@ -1,7 +1,8 @@
+(function(){
+    'use strict';
 /*
 O desafio dessa semana é criar uma mini library (biblioteca) para
 reutilizarmos nossos códigos quando fizermos manipulação de DOM!
-
 Requisitos:
 - O nome da lib deve ser "DOM".
 - Ela deve ser uma função construtora, que receberá uma string por parâmetro.
@@ -15,11 +16,37 @@ selecionados.
 selecionados.
 - O método `get` deve retornar os elementos.
 - O código abaixo deve funcionar corretamente após a lib criada.
-
 Dica: olhe os erros que acontecem no console, e vá resolvendo um a um.
 Só passe para o próximo problema quando tiver resolvido o anterior :)
 */
 // ?
+
+function DOM(param){
+    this.element = this.getDOMElements(param);
+}
+
+DOM.prototype.getDOMElements = function getDOMElements(param){
+    return document.querySelectorAll(param)
+}
+
+DOM.prototype.on = function on(event,callback){
+  Array.prototype.forEach.call(this.element,function(element){
+    element.addEventListener(event,callback,false)
+  });
+ 
+};
+
+DOM.prototype.off = function off(event,callback){
+  Array.prototype.forEach.call(this.element,function(element){
+    element.removeEventListener(event,callback,false)
+  });
+};
+
+DOM.prototype.get = function get(event,func){
+  return this.element
+};
+
+
 
 var $a = new DOM('[data-js="link"]');
 $a.on('click', function(e) {
@@ -29,3 +56,4 @@ $a.on('click', function(e) {
 
 console.log('Elementos selecionados:', $a.get());
 console.log('$a é filho de body?', $a.get()[0].parentNode === document.body);
+})()
